@@ -1,32 +1,24 @@
 ```html
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Vincent Thevenon — Photographe</title>
 
-    <meta name="description" content="Vincent Thevenon — Photographe. Mariages, événements, portraits et instants de vie.">
+    <meta
+        name="description"
+        content="Vincent Thevenon — Photographe à Marseille. Mariages, couples, famille, événements et portraits."
+    >
 
     <style>
 
         /* =====================================================
-           VARIABLES
-        ===================================================== */
-
-        :root {
-            --black: #111111;
-            --white: #ffffff;
-            --beige: #e9e4da;
-            --cream: #f5f2ec;
-            --grey: #77736c;
-            --line: rgba(17, 17, 17, 0.15);
-        }
-
-
-        /* =====================================================
-           RESET
+           BASE
         ===================================================== */
 
         * {
@@ -40,10 +32,14 @@
         }
 
         body {
-            background: var(--cream);
-            color: var(--black);
+            background: #f4f0e8;
+            color: #151515;
             font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.5;
+        }
+
+        img {
+            display: block;
+            width: 100%;
         }
 
         a {
@@ -53,7 +49,7 @@
 
 
         /* =====================================================
-           NAVIGATION
+           NAVBAR
         ===================================================== */
 
         header {
@@ -63,17 +59,17 @@
 
             width: 100%;
 
-            padding: 25px 5vw;
+            padding: 25px 5%;
 
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            background: rgba(245, 242, 236, 0.92);
-
             z-index: 100;
 
-            border-bottom: 1px solid var(--line);
+            background: rgba(244, 240, 232, 0.92);
+
+            backdrop-filter: blur(10px);
         }
 
         .logo {
@@ -84,13 +80,13 @@
 
         nav {
             display: flex;
-            gap: 30px;
+            gap: 35px;
         }
 
         nav a {
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
         }
 
         nav a:hover {
@@ -105,34 +101,41 @@
         .hero {
             min-height: 100vh;
 
-            padding: 160px 8vw 100px;
+            padding: 150px 7% 80px;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            display: grid;
 
-            background: var(--cream);
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 80px;
         }
 
-        .hero-small {
-            font-size: 13px;
+        .hero-text {
+            padding-left: 5%;
+        }
+
+        .small-title {
+            font-size: 12px;
+
             text-transform: uppercase;
+
             letter-spacing: 3px;
-            color: var(--grey);
+
+            color: #77736b;
 
             margin-bottom: 35px;
         }
 
         .hero h1 {
-            max-width: 1000px;
-
             font-family: Georgia, "Times New Roman", serif;
 
-            font-size: clamp(55px, 9vw, 130px);
+            font-size: clamp(60px, 8vw, 120px);
 
             font-weight: normal;
 
-            line-height: 0.95;
+            line-height: 0.9;
 
             letter-spacing: -5px;
         }
@@ -142,40 +145,52 @@
         }
 
         .hero-description {
-            max-width: 520px;
+            max-width: 450px;
 
             margin-top: 45px;
 
-            font-size: 17px;
-
-            color: var(--grey);
+            font-size: 16px;
 
             line-height: 1.8;
+
+            color: #6e6a63;
         }
 
         .hero-button {
             display: inline-block;
 
-            margin-top: 45px;
+            margin-top: 35px;
 
             padding: 15px 25px;
 
-            width: fit-content;
+            border: 1px solid #151515;
 
-            border: 1px solid var(--black);
-
-            font-size: 12px;
+            font-size: 11px;
 
             text-transform: uppercase;
 
             letter-spacing: 2px;
 
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
         .hero-button:hover {
-            background: var(--black);
-            color: var(--white);
+            background: #151515;
+
+            color: white;
+        }
+
+
+        .hero-image {
+            height: 75vh;
+
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            height: 100%;
+
+            object-fit: cover;
         }
 
 
@@ -184,35 +199,41 @@
         ===================================================== */
 
         .intro {
-            padding: 130px 8vw;
+            background: #151515;
 
-            background: var(--black);
+            color: white;
 
-            color: var(--white);
+            padding: 120px 10%;
 
             display: grid;
 
             grid-template-columns: 1fr 1fr;
 
-            gap: 80px;
+            gap: 100px;
         }
 
-        .intro-title {
+        .intro h2 {
             font-family: Georgia, "Times New Roman", serif;
-
-            font-size: clamp(40px, 5vw, 70px);
 
             font-weight: normal;
 
-            line-height: 1.05;
+            font-size: clamp(45px, 6vw, 80px);
+
+            line-height: 1;
+        }
+
+        .intro h2 em {
+            font-style: italic;
+
+            color: #d9d0c1;
         }
 
         .intro-text {
+            align-self: center;
+
             max-width: 500px;
 
-            align-self: end;
-
-            color: #bdbab4;
+            color: #b9b5ae;
 
             font-size: 16px;
 
@@ -225,76 +246,74 @@
         ===================================================== */
 
         .portfolio {
-            padding: 130px 5vw;
+            padding: 130px 5%;
         }
 
-        .section-header {
+        .portfolio-header {
             display: flex;
 
             justify-content: space-between;
 
-            align-items: flex-end;
+            align-items: end;
 
-            margin-bottom: 70px;
-
-            border-bottom: 1px solid var(--line);
+            border-bottom: 1px solid #d4cec3;
 
             padding-bottom: 25px;
+
+            margin-bottom: 80px;
         }
 
-        .section-header h2 {
+        .portfolio-header h2 {
             font-family: Georgia, "Times New Roman", serif;
 
-            font-size: clamp(45px, 6vw, 80px);
-
             font-weight: normal;
+
+            font-size: clamp(50px, 7vw, 100px);
         }
 
-        .section-header p {
-            color: var(--grey);
-
-            font-size: 13px;
+        .portfolio-header p {
+            font-size: 11px;
 
             text-transform: uppercase;
 
             letter-spacing: 2px;
+
+            color: #77736b;
         }
 
 
         /* =====================================================
-           CATEGORIES
+           CATEGORY
         ===================================================== */
 
         .category {
-            margin-bottom: 130px;
+            margin-bottom: 140px;
         }
 
-        .category-title {
+        .category-top {
             display: flex;
 
-            align-items: baseline;
+            justify-content: space-between;
 
-            gap: 20px;
+            align-items: baseline;
 
             margin-bottom: 35px;
         }
 
-        .category-title h3 {
+        .category-title {
             font-family: Georgia, "Times New Roman", serif;
 
-            font-size: 42px;
+            font-size: 45px;
 
             font-weight: normal;
         }
 
-        .category-title span {
-            color: var(--grey);
-
-            font-size: 12px;
-
-            text-transform: uppercase;
+        .category-number {
+            font-size: 11px;
 
             letter-spacing: 2px;
+
+            color: #77736b;
         }
 
 
@@ -307,50 +326,33 @@
 
             grid-template-columns: repeat(3, 1fr);
 
-            gap: 18px;
+            gap: 15px;
         }
 
-        .photo {
-            position: relative;
-
-            height: 480px;
-
-            background: var(--beige);
+        .gallery-item {
+            height: 430px;
 
             overflow: hidden;
 
-            cursor: pointer;
+            background: #ddd5c8;
         }
 
-        .photo.large {
+        .gallery-item.large {
             grid-column: span 2;
         }
 
-        .photo-inner {
+        .gallery-item img {
             width: 100%;
+
             height: 100%;
 
-            display: flex;
+            object-fit: cover;
 
-            align-items: center;
-
-            justify-content: center;
-
-            color: #8b877f;
-
-            font-size: 12px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 2px;
+            transition: transform 0.7s ease;
         }
 
-        .photo:hover .photo-inner {
-            transform: scale(1.03);
-        }
-
-        .photo-inner {
-            transition: transform 0.6s ease;
+        .gallery-item:hover img {
+            transform: scale(1.04);
         }
 
 
@@ -359,9 +361,9 @@
         ===================================================== */
 
         .about {
-            padding: 140px 8vw;
+            background: #ddd5c8;
 
-            background: var(--beige);
+            padding: 130px 8%;
 
             display: grid;
 
@@ -370,34 +372,103 @@
             gap: 100px;
         }
 
-        .about h2 {
-            font-family: Georgia, "Times New Roman", serif;
+        .about-image {
+            height: 650px;
+        }
 
-            font-size: clamp(50px, 7vw, 90px);
+        .about-image img {
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .about-content {
+            align-self: center;
+        }
+
+        .about-content .small-title {
+            margin-bottom: 30px;
+        }
+
+        .about-content h2 {
+            font-family: Georgia, "Times New Roman", serif;
 
             font-weight: normal;
 
+            font-size: clamp(50px, 6vw, 85px);
+
             line-height: 0.95;
+
+            margin-bottom: 40px;
         }
 
-        .about-text {
-            align-self: center;
+        .about-content p {
+            max-width: 500px;
 
-            max-width: 520px;
-        }
+            color: #656158;
 
-        .about-text p {
-            font-size: 17px;
+            font-size: 16px;
 
             line-height: 1.9;
-
-            margin-bottom: 25px;
         }
 
-        .about-small {
-            color: var(--grey);
 
-            font-size: 13px;
+        /* =====================================================
+           SERVICES
+        ===================================================== */
+
+        .services {
+            padding: 130px 8%;
+        }
+
+        .services h2 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-weight: normal;
+
+            font-size: clamp(50px, 7vw, 90px);
+
+            margin-bottom: 70px;
+        }
+
+        .service {
+            display: grid;
+
+            grid-template-columns: 80px 1fr 2fr;
+
+            align-items: center;
+
+            padding: 30px 0;
+
+            border-top: 1px solid #d4cec3;
+        }
+
+        .service:last-child {
+            border-bottom: 1px solid #d4cec3;
+        }
+
+        .service-number {
+            color: #8a857c;
+
+            font-size: 12px;
+        }
+
+        .service h3 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 30px;
+
+            font-weight: normal;
+        }
+
+        .service p {
+            color: #77736b;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            max-width: 450px;
         }
 
 
@@ -406,51 +477,45 @@
         ===================================================== */
 
         .contact {
-            padding: 150px 8vw;
+            padding: 150px 8%;
 
-            background: var(--black);
+            background: #151515;
 
-            color: var(--white);
+            color: white;
 
             text-align: center;
         }
 
-        .contact-small {
-            color: #aaa;
-
-            font-size: 12px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 3px;
-
-            margin-bottom: 30px;
+        .contact .small-title {
+            color: #aaa59c;
         }
 
         .contact h2 {
             font-family: Georgia, "Times New Roman", serif;
 
-            font-size: clamp(50px, 8vw, 110px);
+            font-size: clamp(55px, 9vw, 120px);
 
             font-weight: normal;
 
-            line-height: 1;
+            line-height: 0.95;
         }
 
-        .contact-email {
+        .contact h2 em {
+            font-style: italic;
+
+            color: #d9d0c1;
+        }
+
+        .contact-link {
             display: inline-block;
 
             margin-top: 50px;
 
-            font-size: 18px;
+            padding-bottom: 10px;
 
             border-bottom: 1px solid #777;
 
-            padding-bottom: 8px;
-        }
-
-        .contact-email:hover {
-            color: var(--beige);
+            font-size: 16px;
         }
 
 
@@ -459,23 +524,23 @@
         ===================================================== */
 
         footer {
-            padding: 30px 5vw;
-
-            background: var(--black);
+            background: #151515;
 
             color: #777;
 
             border-top: 1px solid #333;
 
+            padding: 30px 5%;
+
             display: flex;
 
             justify-content: space-between;
 
-            font-size: 11px;
+            font-size: 10px;
 
             text-transform: uppercase;
 
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
 
@@ -490,19 +555,31 @@
             }
 
             nav {
-                gap: 12px;
+                gap: 15px;
             }
 
             nav a {
-                font-size: 10px;
+                font-size: 9px;
             }
 
             .hero {
-                padding: 140px 25px 80px;
+                grid-template-columns: 1fr;
+
+                padding: 130px 25px 70px;
+
+                gap: 50px;
+            }
+
+            .hero-text {
+                padding-left: 0;
             }
 
             .hero h1 {
                 letter-spacing: -3px;
+            }
+
+            .hero-image {
+                height: 60vh;
             }
 
             .intro {
@@ -510,41 +587,35 @@
 
                 padding: 90px 25px;
 
-                gap: 40px;
+                gap: 45px;
             }
 
             .portfolio {
                 padding: 90px 20px;
             }
 
-            .section-header {
+            .portfolio-header {
                 display: block;
             }
 
-            .section-header p {
+            .portfolio-header p {
                 margin-top: 15px;
+            }
+
+            .category {
+                margin-bottom: 90px;
             }
 
             .gallery {
                 grid-template-columns: 1fr;
             }
 
-            .photo {
-                height: 430px;
-            }
-
-            .photo.large {
+            .gallery-item.large {
                 grid-column: span 1;
             }
 
-            .category-title {
-                display: block;
-            }
-
-            .category-title span {
-                display: block;
-
-                margin-top: 8px;
+            .gallery-item {
+                height: 430px;
             }
 
             .about {
@@ -553,6 +624,24 @@
                 padding: 90px 25px;
 
                 gap: 50px;
+            }
+
+            .about-image {
+                height: 500px;
+            }
+
+            .services {
+                padding: 90px 25px;
+            }
+
+            .service {
+                grid-template-columns: 40px 1fr;
+
+                gap: 15px;
+            }
+
+            .service p {
+                grid-column: 2;
             }
 
             .contact {
@@ -566,12 +655,13 @@
             }
 
             footer div + div {
-                margin-top: 10px;
+                margin-top: 12px;
             }
 
         }
 
     </style>
+
 </head>
 
 
@@ -604,24 +694,38 @@
 
     <section class="hero">
 
-        <div class="hero-small">
-            Photographe · Marseille
+        <div class="hero-text">
+
+            <div class="small-title">
+                Photographe · Marseille
+            </div>
+
+            <h1>
+                Photographe<br>
+                <em>d'émotions.</em>
+            </h1>
+
+            <p class="hero-description">
+                Je capture les moments qui comptent,
+                les regards, les sourires et tous ces petits
+                instants que l'on souhaite garder pour toujours.
+            </p>
+
+            <a href="#portfolio" class="hero-button">
+                Découvrir mon univers
+            </a>
+
         </div>
 
-        <h1>
-            Des images<br>
-            <em>qui racontent.</em>
-        </h1>
 
-        <p class="hero-description">
-            Je capture les moments vrais, les émotions spontanées
-            et les détails qui rendent chaque histoire unique.
-            Mariages, événements, portraits et moments de vie.
-        </p>
+        <div class="hero-image">
 
-        <a href="#portfolio" class="hero-button">
-            Découvrir mon travail
-        </a>
+            <img
+                src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85"
+                alt="Photographie de mariage"
+            >
+
+        </div>
 
     </section>
 
@@ -633,21 +737,29 @@
 
     <section class="intro">
 
-        <h2 class="intro-title">
-            Photographier<br>
-            l'instant.
+        <h2>
+            Des images<br>
+            <em>qui racontent.</em>
         </h2>
 
-        <p class="intro-text">
-            Mon approche est simple : créer des images naturelles,
-            élégantes et intemporelles. Je préfère les émotions
-            spontanées aux poses figées et les petits détails
-            aux artifices.
-            <br><br>
-            Chaque événement possède son propre rythme,
-            sa propre énergie et ses propres souvenirs.
-            Mon rôle est de les raconter à travers mes images.
-        </p>
+        <div class="intro-text">
+
+            <p>
+                La photographie est pour moi une manière
+                de raconter une histoire sans avoir besoin
+                de mots.
+            </p>
+
+            <br>
+
+            <p>
+                Mon approche est naturelle, élégante et
+                spontanée. Je cherche avant tout à capturer
+                les émotions réelles et les moments que vous
+                aurez envie de revivre.
+            </p>
+
+        </div>
 
     </section>
 
@@ -659,96 +771,61 @@
 
     <section class="portfolio" id="portfolio">
 
-        <div class="section-header">
+        <div class="portfolio-header">
 
             <h2>Portfolio</h2>
 
-            <p>Quelques histoires</p>
+            <p>Mes histoires en images</p>
 
         </div>
 
 
 
-        <!-- ================= MARIAGE ================= -->
+        <!-- ================= MARIAGES ================= -->
 
         <div class="category">
 
-            <div class="category-title">
+            <div class="category-top">
 
-                <h3>Mariage</h3>
+                <h3 class="category-title">
+                    Mariages
+                </h3>
 
-                <span>01 · Love stories</span>
+                <span class="category-number">
+                    01 / 04
+                </span>
 
             </div>
+
 
             <div class="gallery">
 
-                <div class="photo large">
-                    <div class="photo-inner">
-                        Votre photo mariage 01
-                    </div>
+                <div class="gallery-item large">
+                    <img
+                        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=85"
+                        alt="Mariage"
+                    >
                 </div>
 
-                <div class="photo">
-                    <div class="photo-inner">
-                        Votre photo mariage 02
-                    </div>
+                <div class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85"
+                        alt="Mariage"
+                    >
                 </div>
 
-                <div class="photo">
-                    <div class="photo-inner">
-                        Votre photo mariage 03
-                    </div>
+                <div class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85"
+                        alt="Mariage"
+                    >
                 </div>
 
-                <div class="photo large">
-                    <div class="photo-inner">
-                        Votre photo mariage 04
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- ================= BABY SHOWER ================= -->
-
-        <div class="category">
-
-            <div class="category-title">
-
-                <h3>Baby Shower</h3>
-
-                <span>02 · Family</span>
-
-            </div>
-
-            <div class="gallery">
-
-                <div class="photo">
-                    <div class="photo-inner">
-                        Votre photo baby shower 01
-                    </div>
-                </div>
-
-                <div class="photo large">
-                    <div class="photo-inner">
-                        Votre photo baby shower 02
-                    </div>
-                </div>
-
-                <div class="photo large">
-                    <div class="photo-inner">
-                        Votre photo baby shower 03
-                    </div>
-                </div>
-
-                <div class="photo">
-                    <div class="photo-inner">
-                        Votre photo baby shower 04
-                    </div>
+                <div class="gallery-item large">
+                    <img
+                        src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1400&q=85"
+                        alt="Mariage"
+                    >
                 </div>
 
             </div>
@@ -757,42 +834,104 @@
 
 
 
-        <!-- ================= PORTRAITS ================= -->
+        <!-- ================= COUPLES ================= -->
 
         <div class="category">
 
-            <div class="category-title">
+            <div class="category-top">
 
-                <h3>Portraits</h3>
+                <h3 class="category-title">
+                    Couples
+                </h3>
 
-                <span>03 · People</span>
+                <span class="category-number">
+                    02 / 04
+                </span>
 
             </div>
 
+
             <div class="gallery">
 
-                <div class="photo large">
-                    <div class="photo-inner">
-                        Votre photo portrait 01
-                    </div>
+                <div class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=85"
+                        alt="Couple"
+                    >
                 </div>
 
-                <div class="photo">
-                    <div class="photo-inner">
-                        Votre photo portrait 02
-                    </div>
+                <div class="gallery-item large">
+                    <img
+                        src="https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?auto=format&fit=crop&w=1400&q=85"
+                        alt="Couple"
+                    >
                 </div>
 
-                <div class="photo">
-                    <div class="photo-inner">
-                        Votre photo portrait 03
-                    </div>
+                <div class="gallery-item large">
+                    <img
+                        src="https://images.unsplash.com/photo-1501901609772-df0848060b33?auto=format&fit=crop&w=1400&q=85"
+                        alt="Couple"
+                    >
                 </div>
 
-                <div class="photo large">
-                    <div class="photo-inner">
-                        Votre photo portrait 04
-                    </div>
+                <div class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=85"
+                        alt="Couple"
+                    >
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= BABY SHOWER / FAMILLE ================= -->
+
+        <div class="category">
+
+            <div class="category-top">
+
+                <h3 class="category-title">
+                    Famille & Baby Shower
+                </h3>
+
+                <span class="category-number">
+                    03 / 04
+                </span>
+
+            </div>
+
+
+            <div class="gallery">
+
+                <div class="gallery-item large">
+                    <img
+                        src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1400&q=85"
+                        alt="Famille"
+                    >
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?auto=format&fit=crop&w=900&q=85"
+                        alt="Famille"
+                    >
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=85"
+                        alt="Famille"
+                    >
+                </div>
+
+                <div class="gallery-item large">
+                    <img
+                        src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?auto=format&fit=crop&w=1400&q=85"
+                        alt="Famille"
+                    >
                 </div>
 
             </div>
@@ -805,38 +944,47 @@
 
         <div class="category">
 
-            <div class="category-title">
+            <div class="category-top">
 
-                <h3>Événements</h3>
+                <h3 class="category-title">
+                    Événements
+                </h3>
 
-                <span>04 · Events</span>
+                <span class="category-number">
+                    04 / 04
+                </span>
 
             </div>
 
+
             <div class="gallery">
 
-                <div class="photo">
-                    <div class="photo-inner">
-                        Votre photo événement 01
-                    </div>
+                <div class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85"
+                        alt="Événement"
+                    >
                 </div>
 
-                <div class="photo large">
-                    <div class="photo-inner">
-                        Votre photo événement 02
-                    </div>
+                <div class="gallery-item large">
+                    <img
+                        src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1400&q=85"
+                        alt="Événement"
+                    >
                 </div>
 
-                <div class="photo large">
-                    <div class="photo-inner">
-                        Votre photo événement 03
-                    </div>
+                <div class="gallery-item large">
+                    <img
+                        src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1400&q=85"
+                        alt="Événement"
+                    >
                 </div>
 
-                <div class="photo">
-                    <div class="photo-inner">
-                        Votre photo événement 04
-                    </div>
+                <div class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=900&q=85"
+                        alt="Événement"
+                    >
                 </div>
 
             </div>
@@ -853,27 +1001,110 @@
 
     <section class="about" id="about">
 
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85"
+                alt="Photographe"
+            >
+
+        </div>
+
+
+        <div class="about-content">
+
+            <div class="small-title">
+                À propos
+            </div>
+
+            <h2>
+                Moi,<br>
+                c'est Vincent.
+            </h2>
+
+            <p>
+                Passionné par l'image et les belles histoires,
+                je photographie les moments qui méritent
+                d'être conservés.
+            </p>
+
+            <br>
+
+            <p>
+                Mariages, couples, familles ou événements :
+                je privilégie une photographie naturelle,
+                spontanée et élégante.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SERVICES
+    ====================================================== -->
+
+    <section class="services">
+
         <h2>
-            À propos<br>
-            de moi.
+            Mes services
         </h2>
 
-        <div class="about-text">
+
+        <div class="service">
+
+            <span class="service-number">01</span>
+
+            <h3>Mariages</h3>
 
             <p>
-                Je suis Vincent, photographe basé à Marseille.
-                J'aime capturer les personnes, les lieux et les
-                moments qui méritent d'être gardés.
+                Des préparatifs jusqu'à la soirée,
+                je raconte votre journée avec des images
+                naturelles et intemporelles.
             </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <span class="service-number">02</span>
+
+            <h3>Couples</h3>
 
             <p>
-                Mon style se veut naturel, lumineux et élégant,
-                avec une attention particulière portée aux émotions
-                et aux petits détails.
+                Une séance photo simple et naturelle
+                pour créer des souvenirs à deux.
             </p>
 
-            <p class="about-small">
-                Disponible à Marseille, en Provence et ailleurs.
+        </div>
+
+
+        <div class="service">
+
+            <span class="service-number">03</span>
+
+            <h3>Famille</h3>
+
+            <p>
+                Grossesse, naissance, baby shower ou
+                moments en famille.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <span class="service-number">04</span>
+
+            <h3>Événements</h3>
+
+            <p>
+                Anniversaires, soirées et événements
+                professionnels ou privés.
             </p>
 
         </div>
@@ -888,17 +1119,18 @@
 
     <section class="contact" id="contact">
 
-        <div class="contact-small">
+        <div class="small-title">
             Un projet ? Une histoire à raconter ?
         </div>
 
         <h2>
-            Parlons-en.
+            Parlons-en.<br>
+            <em>Ensemble.</em>
         </h2>
 
         <a
             href="mailto:contact@votremail.com"
-            class="contact-email"
+            class="contact-link"
         >
             contact@votremail.com
         </a>
@@ -925,5 +1157,6 @@
 
 
 </body>
+
 </html>
 ```
