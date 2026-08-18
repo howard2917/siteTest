@@ -17,23 +17,9 @@
 
     <style>
 
-        /* =========================================================
-           VARIABLES
-        ========================================================= */
-
-        :root {
-            --background: #f7f5f0;
-            --white: #ffffff;
-            --black: #171717;
-            --grey: #77736c;
-            --light-grey: #dedbd4;
-            --beige: #e8e2d7;
-        }
-
-
-        /* =========================================================
-           RESET
-        ========================================================= */
+        /* =====================================================
+           BASE
+        ===================================================== */
 
         * {
             margin: 0;
@@ -46,8 +32,8 @@
         }
 
         body {
-            background: var(--background);
-            color: var(--black);
+            background: #f7f6f3;
+            color: #111111;
 
             font-family:
                 Arial,
@@ -62,14 +48,10 @@
             text-decoration: none;
         }
 
-        button {
-            font-family: inherit;
-        }
 
-
-        /* =========================================================
+        /* =====================================================
            NAVIGATION
-        ========================================================= */
+        ===================================================== */
 
         header {
             position: fixed;
@@ -78,65 +60,110 @@
             left: 0;
 
             width: 100%;
-
-            height: 75px;
+            height: 70px;
 
             display: flex;
-
+            align-items: center;
             justify-content: space-between;
 
-            align-items: center;
+            padding: 0 32px;
 
-            padding: 0 5vw;
-
-            background: rgba(247, 245, 240, 0.94);
+            background: rgba(247, 246, 243, 0.94);
 
             backdrop-filter: blur(12px);
 
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid #deddd9;
 
             z-index: 1000;
         }
 
+
         .logo {
-            font-size: 13px;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
-            font-weight: 500;
+            font-size: 20px;
 
-            letter-spacing: 3px;
+            letter-spacing: 4px;
 
-            text-transform: uppercase;
+            font-weight: normal;
         }
+
+        .logo em {
+            font-style: italic;
+        }
+
 
         nav {
             display: flex;
 
-            gap: 32px;
+            align-items: center;
+
+            gap: 34px;
         }
 
         nav a {
-            font-size: 11px;
+            font-size: 12px;
 
             text-transform: uppercase;
 
             letter-spacing: 1.8px;
 
-            color: #444;
+            color: #202020;
+
+            padding: 24px 0;
+
+            position: relative;
         }
 
-        nav a:hover {
-            color: #999;
+        nav a:not(.nav-button)::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 18px;
+
+            width: 0;
+            height: 1px;
+
+            background: #111111;
+
+            transition: width 0.25s ease;
+        }
+
+        nav a:not(.nav-button):hover::after {
+            width: 100%;
         }
 
 
-        /* =========================================================
+        .nav-button {
+            background: #111111;
+
+            color: white;
+
+            padding: 12px 20px;
+
+            border-radius: 25px;
+
+            transition: opacity 0.25s ease;
+        }
+
+        .nav-button:hover {
+            opacity: 0.75;
+        }
+
+
+        /* =====================================================
            HERO
-        ========================================================= */
+        ===================================================== */
 
         .hero {
             min-height: 100vh;
 
-            padding: 160px 7vw 100px;
+            padding: 140px 7vw 90px;
 
             display: grid;
 
@@ -147,17 +174,35 @@
             gap: 90px;
         }
 
+
         .hero-label {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom: 35px;
+
+            color: #77736c;
+
             font-size: 11px;
 
             text-transform: uppercase;
 
             letter-spacing: 3px;
-
-            color: var(--grey);
-
-            margin-bottom: 35px;
         }
+
+        .hero-label span {
+            display: block;
+
+            width: 40px;
+
+            height: 1px;
+
+            background: #111111;
+        }
+
 
         .hero h1 {
             font-family:
@@ -169,7 +214,7 @@
 
             font-weight: normal;
 
-            line-height: 0.92;
+            line-height: 0.9;
 
             letter-spacing: -5px;
         }
@@ -178,26 +223,28 @@
             font-style: italic;
         }
 
+
         .hero-description {
-            max-width: 500px;
+            max-width: 480px;
 
             margin-top: 45px;
 
-            color: var(--grey);
+            color: #77736c;
 
             font-size: 15px;
 
             line-height: 1.9;
         }
 
+
         .hero-link {
             display: inline-block;
 
             margin-top: 35px;
 
-            padding-bottom: 7px;
+            padding-bottom: 8px;
 
-            border-bottom: 1px solid var(--black);
+            border-bottom: 1px solid #111111;
 
             font-size: 11px;
 
@@ -210,8 +257,9 @@
             opacity: 0.5;
         }
 
+
         .hero-image {
-            height: 72vh;
+            height: 75vh;
 
             min-height: 500px;
 
@@ -227,16 +275,16 @@
         }
 
 
-        /* =========================================================
-           INTRO
-        ========================================================= */
+        /* =====================================================
+           INTRODUCTION
+        ===================================================== */
 
         .intro {
-            background: var(--black);
+            background: #111111;
 
-            color: var(--white);
+            color: white;
 
-            padding: 110px 10vw;
+            padding: 120px 10vw;
 
             display: grid;
 
@@ -245,15 +293,16 @@
             gap: 100px;
         }
 
+
         .intro h2 {
             font-family:
                 Georgia,
                 "Times New Roman",
                 serif;
 
-            font-weight: normal;
+            font-size: clamp(45px, 5vw, 75px);
 
-            font-size: clamp(45px, 5vw, 70px);
+            font-weight: normal;
 
             line-height: 1;
 
@@ -261,10 +310,11 @@
         }
 
         .intro h2 em {
-            color: var(--beige);
+            color: #e6dfd2;
 
             font-style: italic;
         }
+
 
         .intro-text {
             align-self: center;
@@ -279,198 +329,140 @@
         }
 
 
-        /* =========================================================
-           PORTFOLIO
-        ========================================================= */
+        /* =====================================================
+           PORTFOLIO INTRO
+        ===================================================== */
 
-        .portfolio {
-            padding: 130px 6vw;
+        .portfolio-intro {
+            background: #ffffff;
+
+            padding: 135px 20px 120px;
+
+            border-top: 1px solid #e5e4e1;
         }
 
-        .portfolio-header {
+
+        .portfolio-intro-inner {
+            max-width: 1100px;
+
+            margin: 0 auto;
+        }
+
+
+        .section-label {
             display: flex;
 
-            justify-content: space-between;
+            align-items: center;
 
-            align-items: end;
+            gap: 14px;
 
-            padding-bottom: 25px;
+            margin-bottom: 40px;
 
-            margin-bottom: 45px;
+            color: #77736c;
 
-            border-bottom: 1px solid var(--light-grey);
+            font-size: 11px;
+
+            letter-spacing: 3px;
         }
 
-        .portfolio-header h2 {
+        .section-label span {
+            width: 40px;
+
+            height: 1px;
+
+            background: #111111;
+        }
+
+
+        .portfolio-intro h2 {
             font-family:
                 Georgia,
                 "Times New Roman",
                 serif;
 
+            font-size: clamp(55px, 7vw, 88px);
+
             font-weight: normal;
 
-            font-size: clamp(55px, 7vw, 90px);
+            line-height: 0.95;
 
-            line-height: 1;
+            letter-spacing: -4px;
+
+            color: #111111;
         }
 
-        .portfolio-header p {
-            font-size: 11px;
-
-            color: var(--grey);
-
-            text-transform: uppercase;
-
-            letter-spacing: 2px;
+        .portfolio-intro h2 em {
+            font-style: italic;
         }
 
 
-        /* =========================================================
-           FILTERS
-        ========================================================= */
+        /* =====================================================
+           PORTFOLIO CATEGORIES
+        ===================================================== */
 
-        .filters {
+        .portfolio-categories {
             display: flex;
 
             flex-wrap: wrap;
 
             gap: 10px;
 
-            margin-bottom: 55px;
-        }
-
-        .filter {
-            background: transparent;
-
-            border: 1px solid var(--light-grey);
-
-            padding: 10px 17px;
-
-            cursor: pointer;
-
-            font-size: 10px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1.5px;
-
-            color: var(--grey);
-
-            transition: all 0.25s ease;
-        }
-
-        .filter:hover,
-        .filter.active {
-            background: var(--black);
-
-            color: var(--white);
-
-            border-color: var(--black);
+            margin-top: 45px;
         }
 
 
-        /* =========================================================
-           PORTFOLIO GRID
-        ========================================================= */
-
-        .portfolio-grid {
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 18px;
-        }
-
-        .work {
-            display: block;
-
-            cursor: pointer;
-
-            transition:
-                opacity 0.3s ease,
-                transform 0.3s ease;
-        }
-
-        .work.hidden {
-            display: none;
-        }
-
-        .work-image {
-            position: relative;
-
-            width: 100%;
-
-            height: 500px;
-
-            overflow: hidden;
-
-            background: var(--beige);
-        }
-
-        .work:nth-child(3n + 2) .work-image {
-            height: 400px;
-        }
-
-        .work:nth-child(3n) .work-image {
-            height: 450px;
-        }
-
-        .work-image img {
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-            transition:
-                transform 0.7s ease,
-                opacity 0.5s ease;
-        }
-
-        .work:hover img {
-            transform: scale(1.04);
-
-            opacity: 0.92;
-        }
-
-        .work-info {
+        .category {
             display: flex;
 
-            justify-content: space-between;
+            align-items: center;
 
-            gap: 20px;
+            justify-content: center;
 
-            padding: 14px 2px 45px;
-        }
+            padding: 10px 20px;
 
-        .work-title {
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
+            border: 1px solid #d7d6d2;
 
-            font-size: 18px;
-        }
+            border-radius: 30px;
 
-        .work-category {
-            color: var(--grey);
+            background: #ffffff;
 
-            font-size: 10px;
+            color: #111111;
 
-            text-transform: uppercase;
+            font-size: 11px;
 
             letter-spacing: 1.5px;
 
-            white-space: nowrap;
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
         }
 
 
-        /* =========================================================
+        .category:hover {
+            background: #111111;
+
+            border-color: #111111;
+
+            color: white;
+        }
+
+
+        .category.active {
+            background: #111111;
+
+            border-color: #111111;
+
+            color: white;
+        }
+
+
+        /* =====================================================
            ABOUT
-        ========================================================= */
+        ===================================================== */
 
         .about {
-            background: var(--beige);
+            background: #e8e2d7;
 
             padding: 130px 8vw;
 
@@ -482,6 +474,7 @@
 
             align-items: center;
         }
+
 
         .about-image {
             height: 650px;
@@ -497,17 +490,19 @@
             object-fit: cover;
         }
 
+
         .about-label {
+            margin-bottom: 30px;
+
+            color: #77736c;
+
             font-size: 11px;
 
             text-transform: uppercase;
 
             letter-spacing: 3px;
-
-            color: var(--grey);
-
-            margin-bottom: 30px;
         }
+
 
         .about h2 {
             font-family:
@@ -515,19 +510,22 @@
                 "Times New Roman",
                 serif;
 
-            font-weight: normal;
-
             font-size: clamp(50px, 6vw, 85px);
 
+            font-weight: normal;
+
             line-height: 0.95;
+
+            letter-spacing: -3px;
 
             margin-bottom: 40px;
         }
 
+
         .about p {
             max-width: 500px;
 
-            color: #666159;
+            color: #656159;
 
             font-size: 15px;
 
@@ -535,22 +533,25 @@
         }
 
 
-        /* =========================================================
-           CONTACT
-        ========================================================= */
+        /* =====================================================
+           SERVICES
+        ===================================================== */
 
-        .contact {
-            background: var(--black);
+        .services {
+            background: #f7f6f3;
 
-            color: white;
-
-            padding: 140px 8vw;
-
-            text-align: center;
+            padding: 130px 8vw;
         }
 
-        .contact-label {
-            color: #999;
+
+        .services-label {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            color: #77736c;
 
             font-size: 11px;
 
@@ -561,24 +562,133 @@
             margin-bottom: 30px;
         }
 
+        .services-label span {
+            width: 40px;
+
+            height: 1px;
+
+            background: #111111;
+        }
+
+
+        .services h2 {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: clamp(50px, 7vw, 90px);
+
+            font-weight: normal;
+
+            line-height: 1;
+
+            margin-bottom: 70px;
+        }
+
+
+        .service {
+            display: grid;
+
+            grid-template-columns: 70px 1fr 1.5fr;
+
+            gap: 20px;
+
+            align-items: center;
+
+            padding: 30px 0;
+
+            border-top: 1px solid #d9d7d2;
+        }
+
+
+        .service:last-child {
+            border-bottom: 1px solid #d9d7d2;
+        }
+
+
+        .service-number {
+            color: #99958d;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+        }
+
+
+        .service h3 {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 28px;
+
+            font-weight: normal;
+        }
+
+
+        .service p {
+            max-width: 450px;
+
+            color: #77736c;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact {
+            background: #111111;
+
+            color: white;
+
+            padding: 150px 8vw;
+
+            text-align: center;
+        }
+
+
+        .contact-label {
+            color: #99958d;
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 30px;
+        }
+
+
         .contact h2 {
             font-family:
                 Georgia,
                 "Times New Roman",
                 serif;
 
-            font-weight: normal;
-
             font-size: clamp(55px, 8vw, 110px);
 
+            font-weight: normal;
+
             line-height: 0.95;
+
+            letter-spacing: -4px;
         }
 
+
         .contact h2 em {
-            color: var(--beige);
+            color: #e8e2d7;
 
             font-style: italic;
         }
+
 
         .contact-email {
             display: inline-block;
@@ -587,22 +697,27 @@
 
             padding-bottom: 8px;
 
-            border-bottom: 1px solid #666;
+            border-bottom: 1px solid #666666;
 
             font-size: 15px;
         }
 
 
-        /* =========================================================
+        .contact-email:hover {
+            color: #e8e2d7;
+        }
+
+
+        /* =====================================================
            FOOTER
-        ========================================================= */
+        ===================================================== */
 
         footer {
-            background: var(--black);
+            background: #111111;
 
-            color: #666;
+            color: #666666;
 
-            border-top: 1px solid #333;
+            border-top: 1px solid #333333;
 
             padding: 30px 5vw;
 
@@ -618,41 +733,63 @@
         }
 
 
-        /* =========================================================
+        /* =====================================================
            MOBILE
-        ========================================================= */
+        ===================================================== */
 
         @media (max-width: 800px) {
 
             header {
+                height: 65px;
+
                 padding: 0 20px;
             }
 
-            nav {
-                gap: 15px;
+
+            .logo {
+                font-size: 15px;
+
+                letter-spacing: 3px;
             }
 
-            nav a {
-                font-size: 9px;
+
+            nav {
+                gap: 12px;
             }
+
+
+            nav a {
+                font-size: 8px;
+
+                letter-spacing: 1px;
+            }
+
+
+            .nav-button {
+                display: none;
+            }
+
 
             .hero {
                 grid-template-columns: 1fr;
 
-                padding: 130px 25px 80px;
+                padding: 120px 25px 70px;
 
                 gap: 50px;
             }
 
+
             .hero h1 {
                 letter-spacing: -3px;
             }
+
 
             .hero-image {
                 height: 60vh;
 
                 min-height: 400px;
             }
+
 
             .intro {
                 grid-template-columns: 1fr;
@@ -662,27 +799,30 @@
                 gap: 45px;
             }
 
-            .portfolio {
-                padding: 90px 20px;
+
+            .portfolio-intro {
+                padding: 90px 25px;
             }
 
-            .portfolio-header {
-                display: block;
+
+            .portfolio-intro h2 {
+                font-size: 55px;
+
+                letter-spacing: -2px;
             }
 
-            .portfolio-header p {
-                margin-top: 15px;
+
+            .portfolio-categories {
+                gap: 8px;
             }
 
-            .portfolio-grid {
-                grid-template-columns: 1fr;
+
+            .category {
+                padding: 9px 15px;
+
+                font-size: 10px;
             }
 
-            .work-image,
-            .work:nth-child(3n + 2) .work-image,
-            .work:nth-child(3n) .work-image {
-                height: 450px;
-            }
 
             .about {
                 grid-template-columns: 1fr;
@@ -692,19 +832,40 @@
                 gap: 50px;
             }
 
+
             .about-image {
                 height: 500px;
             }
 
+
+            .services {
+                padding: 90px 25px;
+            }
+
+
+            .service {
+                grid-template-columns: 40px 1fr;
+
+                gap: 15px;
+            }
+
+
+            .service p {
+                grid-column: 2;
+            }
+
+
             .contact {
                 padding: 100px 25px;
             }
+
 
             footer {
                 display: block;
 
                 text-align: center;
             }
+
 
             footer div + div {
                 margin-top: 12px;
@@ -726,22 +887,37 @@
 
     <header>
 
-        <a href="#" class="logo">
-            VINCENT THEVENON
+        <a
+            href="index.html"
+            class="logo"
+        >
+            VINCENT <em>THEVENON</em>
         </a>
+
 
         <nav>
 
-            <a href="#portfolio">
-                Portfolio
+            <a href="index.html">
+                Accueil
             </a>
 
-            <a href="#about">
-                À propos
+            <a href="#services">
+                Prestations
+            </a>
+
+            <a href="portfolio.html">
+                Portfolio
             </a>
 
             <a href="#contact">
                 Contact
+            </a>
+
+            <a
+                href="#contact"
+                class="nav-button"
+            >
+                Prendre rendez-vous
             </a>
 
         </nav>
@@ -759,13 +935,16 @@
         <div>
 
             <div class="hero-label">
+                <span></span>
                 Photographe · Marseille
             </div>
+
 
             <h1>
                 Des images<br>
                 <em>qui racontent.</em>
             </h1>
+
 
             <p class="hero-description">
                 Je capture les moments vrais, les émotions
@@ -775,11 +954,12 @@
                 Mariages, couples, familles et événements.
             </p>
 
+
             <a
-                href="#portfolio"
+                href="portfolio.html"
                 class="hero-link"
             >
-                Voir le portfolio →
+                Découvrir mon travail →
             </a>
 
         </div>
@@ -799,7 +979,7 @@
 
 
     <!-- =====================================================
-         INTRO
+         INTRODUCTION
     ====================================================== -->
 
     <section class="intro">
@@ -808,6 +988,7 @@
             Photographier<br>
             <em>l'instant.</em>
         </h2>
+
 
         <div class="intro-text">
 
@@ -832,456 +1013,76 @@
 
 
     <!-- =====================================================
-         PORTFOLIO
+         PORTFOLIO INTRO
     ====================================================== -->
 
     <section
-        class="portfolio"
+        class="portfolio-intro"
         id="portfolio"
     >
 
-        <div class="portfolio-header">
+        <div class="portfolio-intro-inner">
+
+
+            <div class="section-label">
+
+                <span></span>
+
+                PORTFOLIO
+
+            </div>
+
 
             <h2>
-                Portfolio
+                Le travail,<br>
+                par <em>séries.</em>
             </h2>
 
-            <p>
-                Le travail, par séries.
-            </p>
 
-        </div>
+            <div class="portfolio-categories">
 
 
-        <!-- FILTRES -->
+                <a
+                    href="portfolio.html"
+                    class="category active"
+                >
+                    TOUS
+                </a>
 
-        <div class="filters">
 
-            <button
-                class="filter active"
-                data-filter="all"
-            >
-                Tous
-            </button>
+                <a
+                    href="portfolio.html#mariage"
+                    class="category"
+                >
+                    MARIAGE
+                </a>
 
-            <button
-                class="filter"
-                data-filter="mariage"
-            >
-                Mariage
-            </button>
 
-            <button
-                class="filter"
-                data-filter="couple"
-            >
-                Couple
-            </button>
+                <a
+                    href="portfolio.html#couple"
+                    class="category"
+                >
+                    COUPLE
+                </a>
 
-            <button
-                class="filter"
-                data-filter="famille"
-            >
-                Famille
-            </button>
 
-            <button
-                class="filter"
-                data-filter="evenement"
-            >
-                Événement
-            </button>
+                <a
+                    href="portfolio.html#famille"
+                    class="category"
+                >
+                    FAMILLE
+                </a>
 
-        </div>
 
+                <a
+                    href="portfolio.html#evenement"
+                    class="category"
+                >
+                    ÉVÉNEMENT
+                </a>
 
 
-        <!-- GALERIE -->
-
-        <div class="portfolio-grid">
-
-
-            <!-- PHOTO 01 -->
-
-            <article
-                class="work"
-                data-category="mariage"
-            >
-
-                <div class="work-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=85"
-                        alt="Mariage"
-                    >
-
-                </div>
-
-                <div class="work-info">
-
-                    <span class="work-title">
-                        Un jour à deux
-                    </span>
-
-                    <span class="work-category">
-                        Mariage
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PHOTO 02 -->
-
-            <article
-                class="work"
-                data-category="mariage"
-            >
-
-                <div class="work-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85"
-                        alt="Mariage"
-                    >
-
-                </div>
-
-                <div class="work-info">
-
-                    <span class="work-title">
-                        Les promesses
-                    </span>
-
-                    <span class="work-category">
-                        Mariage
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PHOTO 03 -->
-
-            <article
-                class="work"
-                data-category="couple"
-            >
-
-                <div class="work-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=85"
-                        alt="Couple"
-                    >
-
-                </div>
-
-                <div class="work-info">
-
-                    <span class="work-title">
-                        Entre nous
-                    </span>
-
-                    <span class="work-category">
-                        Couple
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PHOTO 04 -->
-
-            <article
-                class="work"
-                data-category="famille"
-            >
-
-                <div class="work-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?auto=format&fit=crop&w=1200&q=85"
-                        alt="Famille"
-                    >
-
-                </div>
-
-                <div class="work-info">
-
-                    <span class="work-title">
-                        Premiers instants
-                    </span>
-
-                    <span class="work-category">
-                        Famille
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PHOTO 05 -->
-
-            <article
-                class="work"
-                data-category="couple"
-            >
-
-                <div class="work-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1501901609772-df0848060b33?auto=format&fit=crop&w=1200&q=85"
-                        alt="Couple"
-                    >
-
-                </div>
-
-                <div class="work-info">
-
-                    <span class="work-title">
-                        À deux
-                    </span>
-
-                    <span class="work-category">
-                        Couple
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PHOTO 06 -->
-
-            <article
-                class="work"
-                data-category="evenement"
-            >
-
-                <div class="work-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=85"
-                        alt="Événement"
-                    >
-
-                </div>
-
-                <div class="work-info">
-
-                    <span class="work-title">
-                        Une belle soirée
-                    </span>
-
-                    <span class="work-category">
-                        Événement
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PHOTO 07 -->
-
-            <article
-                class="work"
-                data-category="mariage"
-            >
-
-                <div class="work-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=85"
-                        alt="Mariage"
-                    >
-
-                </div>
-
-                <div class="work-info">
-
-                    <span class="work-title">
-                        Après la cérémonie
-                    </span>
-
-                    <span class="work-category">
-                        Mariage
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PHOTO 08 -->
-
-            <article
-                class="work"
-                data-category="famille"
-            >
-
-                <div class="work-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=85"
-                        alt="Famille"
-                    >
-
-                </div>
-
-                <div class="work-info">
-
-                    <span class="work-title">
-                        En famille
-                    </span>
-
-                    <span class="work-category">
-                        Famille
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PHOTO 09 -->
-
-            <article
-                class="work"
-                data-category="evenement"
-            >
-
-                <div class="work-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=85"
-                        alt="Événement"
-                    >
-
-                </div>
-
-                <div class="work-info">
-
-                    <span class="work-title">
-                        La fête
-                    </span>
-
-                    <span class="work-category">
-                        Événement
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PHOTO 10 -->
-
-            <article
-                class="work"
-                data-category="couple"
-            >
-
-                <div class="work-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?auto=format&fit=crop&w=1200&q=85"
-                        alt="Couple"
-                    >
-
-                </div>
-
-                <div class="work-info">
-
-                    <span class="work-title">
-                        Une histoire
-                    </span>
-
-                    <span class="work-category">
-                        Couple
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PHOTO 11 -->
-
-            <article
-                class="work"
-                data-category="mariage"
-            >
-
-                <div class="work-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85"
-                        alt="Mariage"
-                    >
-
-                </div>
-
-                <div class="work-info">
-
-                    <span class="work-title">
-                        Pour toujours
-                    </span>
-
-                    <span class="work-category">
-                        Mariage
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PHOTO 12 -->
-
-            <article
-                class="work"
-                data-category="famille"
-            >
-
-                <div class="work-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?auto=format&fit=crop&w=1200&q=85"
-                        alt="Famille"
-                    >
-
-                </div>
-
-                <div class="work-info">
-
-                    <span class="work-title">
-                        Douceur
-                    </span>
-
-                    <span class="work-category">
-                        Famille
-                    </span>
-
-                </div>
-
-            </article>
+            </div>
 
         </div>
 
@@ -1298,6 +1099,7 @@
         id="about"
     >
 
+
         <div class="about-image">
 
             <img
@@ -1310,14 +1112,17 @@
 
         <div>
 
+
             <div class="about-label">
                 À propos
             </div>
+
 
             <h2>
                 Moi,<br>
                 c'est Vincent.
             </h2>
+
 
             <p>
                 Photographe basé à Marseille, j'aime
@@ -1325,7 +1130,9 @@
                 naturelles, spontanées et intemporelles.
             </p>
 
+
             <br>
+
 
             <p>
                 Que ce soit pour un mariage, une naissance,
@@ -1334,7 +1141,117 @@
                 vous ressemble.
             </p>
 
+
         </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SERVICES
+    ====================================================== -->
+
+    <section
+        class="services"
+        id="services"
+    >
+
+
+        <div class="services-label">
+
+            <span></span>
+
+            Prestations
+
+        </div>
+
+
+        <h2>
+            Ce que je propose.
+        </h2>
+
+
+        <div class="service">
+
+            <span class="service-number">
+                01
+            </span>
+
+
+            <h3>
+                Mariages
+            </h3>
+
+
+            <p>
+                Des préparatifs jusqu'à la soirée,
+                je raconte votre journée avec des images
+                naturelles et intemporelles.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <span class="service-number">
+                02
+            </span>
+
+
+            <h3>
+                Couples
+            </h3>
+
+
+            <p>
+                Une séance photo simple et naturelle
+                pour créer des souvenirs à deux.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <span class="service-number">
+                03
+            </span>
+
+
+            <h3>
+                Famille
+            </h3>
+
+
+            <p>
+                Grossesse, naissance, baby shower
+                ou simplement un moment en famille.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <span class="service-number">
+                04
+            </span>
+
+
+            <h3>
+                Événements
+            </h3>
+
+
+            <p>
+                Anniversaires, soirées et événements
+                professionnels ou privés.
+            </p>
+
+        </div>
+
 
     </section>
 
@@ -1349,14 +1266,17 @@
         id="contact"
     >
 
+
         <div class="contact-label">
             Un projet en tête ?
         </div>
+
 
         <h2>
             Créons quelque chose<br>
             <em>ensemble.</em>
         </h2>
+
 
         <a
             href="mailto:contact@votremail.com"
@@ -1364,6 +1284,7 @@
         >
             contact@votremail.com
         </a>
+
 
     </section>
 
@@ -1379,67 +1300,12 @@
             © 2026 Vincent Thevenon
         </div>
 
+
         <div>
             Marseille · France
         </div>
 
     </footer>
-
-
-
-    <!-- =====================================================
-         JAVASCRIPT — FILTRES
-    ====================================================== -->
-
-    <script>
-
-        const filters = document.querySelectorAll(".filter");
-
-        const works = document.querySelectorAll(".work");
-
-
-        filters.forEach(function(filter) {
-
-            filter.addEventListener("click", function() {
-
-                const category = this.dataset.filter;
-
-
-                /* Active button */
-
-                filters.forEach(function(button) {
-
-                    button.classList.remove("active");
-
-                });
-
-                this.classList.add("active");
-
-
-                /* Filter photos */
-
-                works.forEach(function(work) {
-
-                    if (
-                        category === "all" ||
-                        work.dataset.category === category
-                    ) {
-
-                        work.classList.remove("hidden");
-
-                    } else {
-
-                        work.classList.add("hidden");
-
-                    }
-
-                });
-
-            });
-
-        });
-
-    </script>
 
 
 </body>
