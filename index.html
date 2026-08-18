@@ -1,34 +1,287 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Éclat Studio - Photographe</title>
-  <meta
-    name="description"
-    content="Éclat Studio capture des histoires sincères à travers une photographie naturelle, élégante et intemporelle."
-  >
+    <title>Vincent Thevenon — Photographie</title>
 
-  <link rel="preconnect" href="[images.unsplash.com](https://images.unsplash.com)">
-  <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
-  <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <link
-    href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap)"
-    rel="stylesheet"
-  >
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #111;
+            color: white;
+        }
 
-  <style>
-    :root {
-      --background: #f7f6f2;
-      --surface: #eeece6;
-      --text: #151515;
-      --muted: #6d6b66;
-      --line: rgba(21, 21, 21, 0.14);
-      --white: #ffffff;
-      --content-width: 1240px;
-      --side-padding: clamp(20px, 4vw, 64px);
-    }
+        /* Navigation */
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
 
-    *
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            background:
+                linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55)),
+                url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(50px, 8vw, 110px);
+            font-weight: 300;
+            letter-spacing: 5px;
+        }
+
+        .hero-content p {
+            margin-top: 20px;
+            font-size: 16px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 15px 30px;
+            border: 1px solid white;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Portfolio */
+        .portfolio {
+            padding: 100px 6%;
+            background: #111;
+        }
+
+        .portfolio h2 {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 300;
+            margin-bottom: 60px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+            transition: 0.4s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.02);
+            opacity: 0.8;
+        }
+
+        /* About */
+        .about {
+            padding: 100px 10%;
+            background: #f5f5f5;
+            color: #111;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 40px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 100px 20px;
+            text-align: center;
+            background: #111;
+        }
+
+        .contact h2 {
+            font-size: 40px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer {
+            padding: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            background: #111;
+        }
+
+        /* Mobile */
+        @media (max-width: 800px) {
+            nav {
+                padding: 25px;
+            }
+
+            nav div:last-child {
+                display: none;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery img {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">VINCENT THEVENON</div>
+
+        <div>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">À propos</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+
+    <!-- Accueil -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>PHOTOGRAPHY</h1>
+            <p>Moments · Places · Stories</p>
+
+            <a href="#portfolio" class="button">
+                Voir le portfolio
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Portfolio -->
+    <section class="portfolio" id="portfolio">
+
+        <h2>Portfolio</h2>
+
+        <div class="gallery">
+
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80" alt="Photographie paysage">
+
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80" alt="Photographie nature">
+
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80" alt="Photographie voyage">
+
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80" alt="Photographie montagne">
+
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Photographie mer">
+
+            <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=80" alt="Photographie nature">
+
+        </div>
+
+    </section>
+
+
+    <!-- À propos -->
+    <section class="about" id="about">
+
+        <h2>À propos</h2>
+
+        <p>
+            Bienvenue sur mon portfolio.
+            Je suis Vincent, photographe passionné par les paysages,
+            les voyages et les moments spontanés.
+            Je cherche à capturer des images simples, naturelles
+            et intemporelles.
+        </p>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+
+        <h2>Contact</h2>
+
+        <p>
+            Une question ou un projet ?
+        </p>
+
+        <br>
+
+        <a href="mailto:tonemail@example.com">
+            tonemail@example.com
+        </a>
+
+    </section>
+
+
+    <footer>
+        © 2026 Vincent Thevenon — Photography
+    </footer>
+
+</body>
+</html>
